@@ -21,3 +21,21 @@ router.post("/", (req, res) => {
     pupuk.push(newPupuk);
     res.status(201).json(newPupuk);
 });
+
+router.put("/:id", (req, res) => {
+    const pupukIndex = pupuk.findIndex((p) => p.id === parseInt(req.params.id));
+    if (pupukIndex === -1)
+      return res.status(404).json({ message: "Pupuk tidak ditemukan" });
+  
+    pupuk[pupukIndex] = {
+      ...pupuk[pupukIndex],
+      jenisPupuk: req.body.jenisPupuk || pupuk[pupukIndex].jenisPupuk,
+      namaPupuk: req.body.namaPupuk || pupuk[pupukIndex].namaPupuk,
+      deskripsi: req.body.deskripsi || pupuk[pupukIndex].deskripsi,
+    };
+  
+    res.status(200).json({
+      message: `Pupuk dengan ID ${req.params.id} telah diperbarui`,
+      updatedPupuk: pupuk[pupukIndex],
+    });
+  });
