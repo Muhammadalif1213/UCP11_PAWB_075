@@ -50,3 +50,5 @@ router.delete("/:id", (req, res) => {
       message: `Pupuk '${deletedPupuk.namaPupuk}' telah dihapus`,
     });
 });
+
+export default router;
