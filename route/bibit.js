@@ -50,3 +50,5 @@ router.delete("/:id", (req, res) => {
       message: `Bibit '${deletedBibit.namaBibit}' telah dihapus`,
     });
 });
+
+export default router;
