@@ -7,3 +7,6 @@ const bibit = [
     { id: 2, namaBibit: "Padi", jenisTanaman: "Pangan", harga: 5000 },
 ];
 
+router.get("/", (req, res) => {
+    res.json(bibit);
+  });
