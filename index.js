@@ -8,6 +8,8 @@ const port = 8000;
 
 app.use(bodyParser.json());
 
+app.use("/bibit", bibitRoute);
+app.use("/pupuk", pupukRoute);
 
 app.get("/", (req, res) => {
     console.log("GET ROUTE");
