@@ -38,4 +38,15 @@ router.put("/:id", (req, res) => {
       message: `Pupuk dengan ID ${req.params.id} telah diperbarui`,
       updatedPupuk: pupuk[pupukIndex],
     });
-  });
+});
+
+router.delete("/:id", (req, res) => {
+    const pupukIndex = pupuk.findIndex((p) => p.id === parseInt(req.params.id));
+    if (pupukIndex === -1)
+      return res.status(404).json({ message: "Pupuk tidak ditemukan" });
+  
+    const deletedPupuk = pupuk.splice(pupukIndex, 1)[0];
+    res.status(200).json({
+      message: `Pupuk '${deletedPupuk.namaPupuk}' telah dihapus`,
+    });
+});
