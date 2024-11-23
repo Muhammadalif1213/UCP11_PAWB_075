@@ -13,7 +13,7 @@ app.use("/pupuk", pupukRoute);
 
 app.get("/", (req, res) => {
     console.log("GET ROUTE");
-    res.send("Muhammad Alifian");
+    res.send("Selamat datang di web pupuk dan bibit tanaman, gunakan endpoit (/bibit) untuk melihat bibit dan gunakan endpoint (/pupuk) untuk melihat pupuk, untuk crud nya menggunakan postman");
 });
 
 app.listen(port, () =>
