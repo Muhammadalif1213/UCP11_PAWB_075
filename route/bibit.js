@@ -9,4 +9,15 @@ const bibit = [
 
 router.get("/", (req, res) => {
     res.json(bibit);
-  });
+});
+
+router.post("/", (req, res) => {
+    const newBibit = {
+        id: bibit.length + 1,
+        namaBibit: req.body.namaBibit,
+        jenisTanaman: req.body.jenisTanaman,
+        harga: req.body.harga,
+    };
+    bibit.push(newBibit);
+    res.status(201).json(newBibit);
+});
