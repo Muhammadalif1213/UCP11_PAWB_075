@@ -39,3 +39,14 @@ router.put("/:id", (req, res) => {
       updatedBibit: bibit[bibitIndex],
     });
 });  
+
+router.delete("/:id", (req, res) => {
+    const bibitIndex = bibit.findIndex((b) => b.id === parseInt(req.params.id));
+    if (bibitIndex === -1)
+      return res.status(404).json({ message: "Bibit tidak ditemukan" });
+  
+    const deletedBibit = bibit.splice(bibitIndex, 1)[0];
+    res.status(200).json({
+      message: `Bibit '${deletedBibit.namaBibit}' telah dihapus`,
+    });
+});
